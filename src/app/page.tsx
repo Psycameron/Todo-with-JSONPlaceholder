@@ -1,7 +1,9 @@
+import TodoList from "@/components/TodoList";
+
 export default function Home() {
   return (
     <main>
-      <h1>Toto list with JSONPlaceholder</h1>
+      <TodoList />
     </main>
   );
 }
