@@ -2,7 +2,7 @@ import TodoList from "@/components/TodoList";
 
 export default function Home() {
   return (
-    <main>
+    <main className="p-10">
       <TodoList />
     </main>
   );

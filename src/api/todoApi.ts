@@ -8,11 +8,11 @@ export const getTodos = async (): Promise<Todo[]> => {
   return res.json();
 };
 
-export const addTodo = async (title: string): Promise<Todo> => {
+export const addTodo = async (todo: Todo): Promise<Todo> => {
   const res = await fetch(`${BASE_URL}/todos`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title, completed: false }),
+    body: JSON.stringify(todo),
   });
   if (!res.ok) throw new Error("Failed to add todo");
   return res.json();
