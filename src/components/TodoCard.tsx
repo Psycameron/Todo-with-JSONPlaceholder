@@ -1,4 +1,6 @@
+import { useDeleteTodo } from "@/hooks/useDeleteTodo";
 import { Todo } from "../types/todo";
+import DeleteButton from "./DeleteButton";
 
 interface ITodoCardProps {
   todo: Todo;
@@ -6,7 +8,9 @@ interface ITodoCardProps {
 }
 
 const TodoCard = ({ todo }: ITodoCardProps) => {
-  const { userId, title, completed } = todo;
+  const { userId, title, completed, id } = todo;
+
+  const { mutate } = useDeleteTodo();
 
   return (
     <li className="flex flex-col justify-between gap-2 bg-white border border-gray-200 rounded-xl shadow-md p-4 transition hover:shadow-lg">
@@ -24,14 +28,7 @@ const TodoCard = ({ todo }: ITodoCardProps) => {
       </div>
       <p className="text-base font-medium text-gray-800 mt-2">{title}</p>
 
-      {/* 
-      <button
-        onClick={() => onDelete?.(todo.id)}
-        className="mt-3 text-sm text-red-500 hover:text-red-700 self-end"
-      >
-        Delete
-      </button>
-      */}
+      <DeleteButton onDelete={mutate} id={id} />
     </li>
   );
 };
