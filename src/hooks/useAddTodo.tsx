@@ -7,11 +7,7 @@ export const useAddTodo = () => {
 
   return useMutation({
     mutationFn: addTodo,
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ["todos"] });
-    // },
 
-    // optimistic update
     onMutate: async (newTodo) => {
       await queryClient.cancelQueries({ queryKey: ["todos"] });
       const prevTodos = queryClient.getQueryData<Todo[]>(["todos"]) || [];
