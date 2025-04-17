@@ -18,10 +18,9 @@ export const addTodo = async (title: string): Promise<Todo> => {
   return res.json();
 };
 
-export const deleteTodo = async (id: number): Promise<number> => {
+export const deleteTodo = async (id: number): Promise<void> => {
   const res = await fetch(`${BASE_URL}/todos/${id}`, {
     method: "DELETE",
   });
   if (!res.ok) throw new Error("Failed to delete todo");
-  return id;
 };
