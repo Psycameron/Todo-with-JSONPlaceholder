@@ -18,6 +18,12 @@ const TodoList = () => {
           <TodoCard key={todo.id} todo={todo} />
         ))}
       </ul>
+
+      {data?.length === 0 && (
+        <div className="flex justify-center mt-10 text-3xl">
+          <p>Not found any todos...</p> <p>Create a new one</p>
+        </div>
+      )}
     </>
   );
 };
